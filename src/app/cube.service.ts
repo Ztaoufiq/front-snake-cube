@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class NameService {
+export class CubeService {
   constructor(private http:HttpClient) { }
 
   onSendService(formData: FormData):Observable<any>{

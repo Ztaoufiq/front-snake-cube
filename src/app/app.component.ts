@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NameService } from './name.service';
+import { CubeService } from './cube.service';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +11,14 @@ export class AppComponent {
   startFrom="";
   vectors="";
   error="";
-  constructor(private nameService:NameService) {}
+  constructor(private cubeService:CubeService) {}
 
   onSend(coordinateX:string,coordinateY:string,coordinateZ:string,segment:string){
 	const formData : FormData = new FormData()
 	let dimension = [coordinateX,coordinateY,coordinateZ]
 	formData.append('dimension',JSON.stringify(dimension))
-	formData.append('structure',segment)
-	this.nameService.onSendService(formData).subscribe
+	formData.append('segment',segment)
+	this.cubeService.onSendService(formData).subscribe
 	(res=>{
 		console.log(res);
 		this.startFrom= res[0][0];
